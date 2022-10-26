@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>不知道吃啥</title>
+    <style>
+        body{
+            background: url("image/TT.jpg");
+        }
+        #a1{
+            width: 100px;
+            height: 100px;
+            background: url("image/11.png");
+            background-size: cover;
+            border-top-left-radius: 100%;
+            text-align: center;
+            line-height: 100px;
+            font-family: "华文琥珀";
+            color: yellow;
+        }
+        #a2{
+            width: 100px;
+            height: 100px;
+            background: url("image/22.jpeg");
+            background-size: cover;
+            border-bottom-left-radius: 100%;
+            text-align: center;
+            line-height: 100px;
+            font-family: "华文琥珀";
+            color: yellow;
+
+        }
+        #a3{
+            width: 100px;
+            height: 100px;
+            background: url("image/33.jpg");
+            background-size: cover;
+            margin-left: 100px;
+            margin-top: -200px;
+            border-top-right-radius: 100%;
+            text-align: center;
+            line-height: 100px;
+            font-family: "华文琥珀";
+            color: yellow;
+        }
+        #a4{
+            width: 100px;
+            height: 100px;
+            background: url("image/44.jpg");
+            background-size: cover;
+            margin-left: 100px;
+            border-bottom-right-radius: 100%;
+            text-align: center;
+            line-height: 100px;
+            font-family: "华文琥珀";
+            color: yellow;
+        }
+        #a5{
+            width: 10px;
+            height: 150px;
+            background: black;
+            position: absolute;
+            left: 300px;
+            top: 30px;
+            background: red;
+        }
+        #a6{
+            width: 20px;
+            height: 20px;
+            background: black;
+            border-bottom-right-radius: 180%;
+            position: absolute;
+            left: 295px;
+            top: 170px;
+            transform: rotate(222deg);
+            background: red;
+        }
+        #d1{
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            transform:rotate(360deg);
+            transition: 1s;
+        }
+        #d2{
+            width: 80px;
+            height: 40px;
+            border: 2px solid black;
+            background: yellow;
+            position: absolute;
+            left: 100px;
+            top: 420px;
+            border-radius: 10%;
+            text-align: center;
+            line-height: 40px;
+        }
+        #p1{
+            width: 15px;
+            height: 145px;
+            background: pink;
+            position: absolute;
+            left: 280px;
+            top: 30px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oDiv = document.getElementById("d1");
+            var oDiv2 = document.getElementById("d2");
+            oDiv2.onmousedown = function () {
+                oDiv2.style.transform = "scale(0.8)";
+                var  nu = 167 * fun1();
+                var  num2 = nu + "deg";
+                oDiv.style.transform = "rotate(" + num2 + ")";
+                oDiv.style.transition = "30s";
+
+            }
+            oDiv2.onmouseup = function () {
+                oDiv2.style.transform = "scale(1)";
+            }
+            function fun1() {
+                var arr = [];
+                for (var i = 700; i <= 1000; i++) {
+                    arr.push(i);
+                }
+                var num = parseInt(Math.random() * arr.length);
+                return num;
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="a5"></div>
+<div id="a6"></div>
+<div id="d2">点击开始</div>
+<div id="d1">
+    <div id="a1" style="font-size:20px;" >鸡公煲</div>
+    <div id="a2" style="font-size:20px;">螺蛳粉</div>
+    <div id="a3" style="font-size:20px;">过桥米线</div>
+    <div id="a4" style="font-size:20px;">肉夹馍</div>
+</div>
+<div id="p1">就这个吧白换了</div>
+</body>
+</html>
