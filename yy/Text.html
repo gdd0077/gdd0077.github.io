@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: deepskyblue;
+        }
+        #MLeft1{
+            width: 800px;
+            height: 950px;
+            background: url("image/L.jpg");
+            background-size: cover;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        #MRight{
+            width: 800px;
+            height: 950px;
+            background: url("image/R.jpg");
+            background-size: cover;
+            position: absolute;
+            left: 800px;
+        }
+        #back{
+            position: absolute;
+            width: 2020px;
+            height: 950px;
+            background: url("image/11.jpg");
+            background-size: cover;
+            border: 2px solid red;
+        }
+        #star{
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            background: yellow;
+            border: 2px solid red;
+            left: 755px;
+            top: 470px;
+        }
+        #numbox{
+            position: absolute;
+            left: 1600px;
+            top: 230px;
+            text-align: center;
+            line-height: 70px;
+            font-size: 50px;
+        }
+        #numbox2{
+            position: absolute;
+            left: 1600px;
+            top: 130px;
+            background: yellow;
+            text-align: center;
+            line-height: 70px;
+            font-size: 50px;
+            background: yellow;
+        }
+        #num{
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            left: 150px;
+            top: 15px;
+            text-align: center;
+            line-height: 40px;
+
+        }
+        .plane2{
+            width: 120px;
+            height: 90px;
+            transform: rotate(180deg);
+            background:url("image/plane2.png");
+            background-size: cover;
+            position: absolute;
+            top: 70px;
+            left: 10px;
+        }
+        #plane3{
+            position: absolute;
+            top: 70px;
+            left: 150px;
+        }
+        #plane4{
+            position: absolute;
+            top: 70px;
+            left: 450px;
+        }
+        .pao{
+            width: 25px;
+            height: 25px;
+            top: 30px;
+            transform: rotate(90deg);
+            background:url("image/pao.png");
+            background-size: cover;
+            position: absolute;
+        }
+        #plane{
+            width: 192px;
+            height: 175px;
+            background: url("image/plane.png");
+            background-size: cover;
+            position: absolute;
+            left: 700px;
+            top: 600px;
+        }
+        .box{
+            width: 400px;
+            height: 70px;
+            border: 2px solid black;
+            background: url("image/TT.jpg");
+            border-radius: 2%;
+            text-align: center;
+            line-height: 40px;
+        }
+        .btn{
+            width: 400px;
+            height: 70px;
+            border: 2px solid black;
+
+            border-radius: 10%;
+            text-align: center;
+            line-height: 40px;
+        }
+        #fire{
+            position: absolute;
+            top: 30px;
+            left: 220px;
+        }
+        #btn{
+            width: 205px;
+            height: 100px;
+            border: 2px solid red;
+            position: absolute;
+            bottom: 100px;
+            left: 45%;
+        }
+        #btnL{
+            position: absolute;
+            top: 30px;
+        }
+        #btnR{
+            position: absolute;
+            left: 140px;
+            top: 30px;
+        }
+        #btnT{
+            position: absolute;
+            left: 70px;
+        }
+        #btnB{
+            position: absolute;
+            left: 70px;
+            top: 55px;
+        }
+    </style>
+    <script src="MyJS.js"></script>
+    <script>
+        window.onload = function() {
+            var num = 0;
+            alert("分别点数字1， 2, 3 可以换皮肤");
+
+            var btn = document.getElementsByClassName("btn");
+            for (var k = 0; k < btn.length; k++) {
+                btn[k].onmousedown = function () {
+                    this.style.webkitTransform = "scale(0.8)";
+                    this.style.webkitTransition = "0.5s";
+                }
+                btn[k].onmouseup = function () {
+                    this.style.webkitTransform = "scale(1)";
+                }
+            }
+            var plane = document.getElementById("plane");
+            var plane2 = document.getElementById("plane2");
+            var plane3 = document.getElementById("plane3");
+            var plane4 = document.getElementById("plane4");
+            var body = document.getElementById("back");
+            var pao2 = document.getElementById("pao2");
+            var pao3 = document.getElementById("pao3");
+            var pao4 = document.getElementById("pao4");
+
+
+                document.onkeydown = function(ev){
+                var box = document.getElementById('num');
+                    num = parseInt(num);
+                    box.innerText = num ;
+                var oEvent = ev || event;
+                if(oEvent.keyCode == 39){
+                    var left = document.getElementById("plane").offsetLeft;
+                    var x = parseInt(left);
+                    x = x + 50;
+                    if (x >= 1600) {
+                        x = 0
+                    }
+                    plane.style.left = x + "px";
+                }
+                if(oEvent.keyCode == 37){
+                    var left = document.getElementById("plane").offsetLeft;
+                    var x = parseInt(left);
+                    x = x - 50;
+                    if (x <= 0) {
+                        x = 1600
+                    }
+                    plane.style.left = x + "px";
+                }
+                if(oEvent.keyCode == 38){
+                    var top = document.getElementById("plane").offsetTop;
+                    var x = parseInt(top);
+                    x = x - 50;
+                    if (x <= 0) {
+                        x = 850
+                    }
+                    plane.style.top = x + "px";
+                }
+                if(oEvent.keyCode == 40){
+                    var top = document.getElementById("plane").offsetTop;
+                    var x = parseInt(top);
+                    x = x + 50;
+                    if (x >= 900) {
+                        x = 0
+                    }
+                    plane.style.top = x + "px";
+                }
+                if(oEvent.keyCode == 32){
+                    var oDiv = document.createElement("div");
+                    oDiv.style.width = "35px";
+                    oDiv.style.height = "75px";
+                    oDiv.style.background = "url('image/Wpao.png')";
+                    oDiv.style.backgroundSize = "cover";
+                    oDiv.style.position = "absolute";
+                    body.appendChild(oDiv);
+                    var WplaneTop = document.getElementById("plane").offsetTop;
+                    var WplaneLeft = document.getElementById("plane").offsetLeft;
+                    var Ptop = oDiv.offsetTop;
+                    var Pleft = oDiv.offsetLeft;
+                    var Pt = parseInt(Ptop);
+                    var Pl = parseInt(Pleft);
+                    var Wp = parseInt(WplaneTop) - 20;
+                    var Wl = parseInt(WplaneLeft) + 85;
+                    oDiv.style.top = Wp + "px";
+                    oDiv.style.left = Wl + "px";
+                    var Tm = setInterval(function(){
+                        // 获取敌人飞机坐标
+                        var Dplane2T = document.getElementById("plane2").offsetTop;
+                        var Dplane2L = document.getElementById("plane2").offsetLeft;
+                        var Dp2t = parseInt(Dplane2T);
+                        var Dp2l = parseInt(Dplane2L);
+                        var RR = Math.sqrt((Wp - Dp2t)*(Wp - Dp2t) + (Wl - Dp2l)*(Wl - Dp2l));
+//                        var TT = getStyle("plane2").visibility;
+ //                      alert(getStyle("plane2").visibility);
+                        if( RR < 80 && RR > 70){
+                            oDiv.style.visibility = "hidden";
+                            plane2.style.background = "url('image/F.gif')";
+                            plane2.style.backgroundSize = "cover";
+                            plane2.style.transition = "0.7s";
+                            plane2.style.visibility = "hidden";
+                            pao2.style.visibility = "hidden";
+                            num = num + 0.5;
+                            box.innerText = num ;
+                        }
+
+                        var Dplane3T = document.getElementById("plane3").offsetTop;
+                        var Dplane3L = document.getElementById("plane3").offsetLeft;
+                        var Dp3t = parseInt(Dplane3T);
+                        var Dp3l = parseInt(Dplane3L);
+                        var RR3 = Math.sqrt((Wp - Dp3t)*(Wp - Dp3t) + (Wl - Dp3l)*(Wl - Dp3l));
+                        if( RR3 < 80 && RR3 > 70){
+                            oDiv.style.visibility = "hidden";
+                            plane3.style.background = "url('image/F.gif')";
+                            plane3.style.backgroundSize = "cover";
+                            plane3.style.transition = "0.7s";
+                            plane3.style.visibility = "hidden";
+                            pao3.style.visibility = "hidden";
+                            num = num + 0.5;
+
+                        }
+
+                        var Dplane4T = document.getElementById("plane4").offsetTop;
+                        var Dplane4L = document.getElementById("plane4").offsetLeft;
+                        var Dp4t = parseInt(Dplane4T);
+                        var Dp4l = parseInt(Dplane4L);
+                        var RR4 = Math.sqrt((Wp - Dp4t)*(Wp - Dp4t) + (Wl - Dp4l)*(Wl - Dp4l));
+                        if( RR4 < 80 && RR4 > 70){
+                            oDiv.style.visibility = "hidden";
+                            plane4.style.background = "url('image/F.gif')";
+                            plane4.style.backgroundSize = "cover";
+                            plane4.style.transition = "0.7s";
+                          plane4.style.visibility = "hidden";
+                            pao4.style.visibility = "hidden";
+                            num = num + 0.5;
+
+                        }
+
+                        Wp = Wp - 10;
+                        if (Wp <= 20) {
+                            oDiv.style.visibility = "hidden";
+                        }
+                        oDiv.style.top = Wp + "px";
+
+                    },50);
+
+                }
+                //换皮肤
+                if(oEvent.keyCode == 49) {
+                    plane.style.background = "url('image/plane.png')";
+                    plane.style.backgroundSize = "cover";
+                    }
+                if(oEvent.keyCode == 50) {
+                    plane.style.background = "url('image/PP2.png')";
+                    plane.style.backgroundSize = "cover";
+                }
+                if(oEvent.keyCode == 51) {
+                    plane.style.background = "url('image/PP1.png')";
+                    plane.style.backgroundSize = "cover";
+                }
+            }
+//            var planeall = document.getElementsByClassName("plane2");
+//            var left = planeall[1].offsetLeft;
+//            alert(left)
+            var plane2 = document.getElementById("plane2");
+            var pao = document.getElementById("pao2");
+            var star = document.getElementById("star");
+            var flag = false;
+            star.onclick = function() {
+
+                star.style.visibility = "hidden";
+                //开门
+                var oBox2 = document.getElementById("MRight");
+                var oBox = document.getElementById("MLeft1");
+                var timer = setInterval(function(){
+                    var wid2 = getStyle(oBox2).width;
+                    var left2 = getStyle(oBox2).left;
+                    var w = parseInt(wid2);
+                    var x = parseInt(left2);
+                    w = w - 50;
+                    x = x + 50;
+                    if(w <= -3){
+                        clearInterval(timer);
+                    }
+                    oBox2.style.width = w + "px";
+                    oBox2.style.left = x + "px";
+                }, 50);
+                var timer = setInterval(function(){
+                    var wid2 = getStyle(oBox).width;
+                    var w = parseInt(wid2);
+                    w = w - 50;
+                    if(w <= 0){
+                        clearInterval(timer);
+                    }
+                    oBox.style.width = w + "px";
+                }, 50);
+
+
+                var left = document.getElementById("plane2").offsetLeft;
+                var x = parseInt(left);
+                x = x + 33;
+                pao.style.left = x + "px";
+                if (flag == false) {
+                    var tm1 = setInterval(function () {
+//                      一号敌人机
+                        var top2 = document.getElementById("pao2").offsetTop;
+                        var plane2Left =  document.getElementById("plane2").offsetLeft;
+                        var left2 = document.getElementById("plane2").offsetLeft;
+                        var x = parseInt(top2);
+                        var y = parseInt(plane2Left);
+                        var x2 = parseInt(left2) + 33;
+                        x = x + 10;
+                        y = y + 2;
+                        if (x >= 900) {
+                            x = document.getElementById("plane2").offsetTop + 95;
+                            pao.style.left = x2 + "px";
+                                }
+                        if (y >= 1600) {
+                            y = 0;
+                            plane2.style.visibility = "visible";
+                            pao2.style.visibility = "visible";
+                            plane2.style.background = "url('image/plane2.png')";
+                            plane2.style.backgroundSize = "cover";
+                        }
+                        plane2.style.top = (Math.floor(Math.sin(y/800*2*Math.PI)*200)+200 ) + "px";
+                        pao.style.top = x + "px";
+                        plane2.style.left = y + "px";
+                    }, 50);
+//                二号敌人机
+                    var left3 = document.getElementById("plane3").offsetLeft;
+                    var pao3 = document.getElementById("pao3");
+                    var x3 = parseInt(left3);
+                    x3 = x3 + 33;
+                    pao3.style.left = x3 + "px";
+                    var tm2 = setInterval(function () {
+                        var top = document.getElementById("pao3").offsetTop;
+
+                        var plane2Left =  document.getElementById("plane3").offsetLeft;
+
+                        var left = document.getElementById("plane3").offsetLeft;
+
+                        var x = parseInt(top);
+                        var y = parseInt(plane2Left);
+                        var x3 = parseInt(left) + 33;
+                        x = x + 10;
+                        y = y + 10;
+                        if (x >= 900) {
+                            x = document.getElementById("plane3").offsetTop + 95;
+                            pao3.style.left = x3 + "px";
+                        }
+                        if (y >= 1600) {
+                            y = 0;
+                            plane3.style.visibility = "visible";
+                            pao3.style.visibility = "visible";
+                            plane3.style.background = "url('image/plane2.png')";
+                            plane3.style.backgroundSize = "cover";
+                        }
+                        plane3.style.top =(Math.floor(Math.sin(y/800*2*Math.PI)*200)+200 ) + "px";
+                        pao3.style.top = x + "px";
+                        plane3.style.left = y + "px";
+                    }, 50);
+//                三号敌人机
+
+                    var left4 = document.getElementById("plane4").offsetLeft;
+                    var pao4 = document.getElementById("pao4");
+                    var x3 = parseInt(left4);
+                    x3 = x3 + 33;
+                    pao4.style.left = x3 + "px";
+                    var tm3 = setInterval(function () {
+                        plane4.style.transition = "0.01s";
+                        plane3.style.transition = "0.01s";
+                        plane2.style.transition = "0.01s";
+
+                        var top = document.getElementById("pao4").offsetTop;
+                        var plane2Left =  document.getElementById("plane4").offsetLeft;
+                        var left = document.getElementById("plane4").offsetLeft;
+                        var x = parseInt(top);
+                        var y = parseInt(plane2Left);
+                        var x3 = parseInt(left) + 33;
+                        x = x + 10;
+                        y = y + 10;
+                        if (x >= 900) {
+                            x = document.getElementById("plane4").offsetTop + 95;
+                            pao4.style.left = x3 + "px";
+                            flag = false;
+                        }
+                        if (y >= 1600) {
+                            y = 0;
+                            plane4.style.visibility = "visible";
+                            plane4.style.background = "url('image/plane2.png')";
+                            plane4.style.backgroundSize = "cover";
+                            pao4.style.visibility = "visible";
+
+                        }
+                        plane4.style.top =(Math.floor(Math.cos(y/800*2*Math.PI)*200)+200 ) + "px";
+                        pao4.style.top = x + "px";
+                        plane4.style.left = y + "px";
+                    }, 50);
+                }
+
+
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="back">
+    <div id="plane"></div>
+    <div id="plane2" class="plane2"></div>
+    <div id="plane3" class="plane2"></div>
+    <div id="plane4" class="plane2"></div>
+    <div id="pao3" class="pao"></div>
+    <div id="pao4" class="pao"></div>
+    <div id="pao2" class="pao"></div>
+    <div id="numbox" class="box">
+        已消灭&nbsp; &nbsp;艘敌机
+        <div id="num" class="btu"></div>
+    </div>
+    <div id="numbox2" class="btn">小东游戏公司</div>
+
+</div>
+<div id="MLeft1"></div>
+<div id="MRight"></div>
+<div id="star" class="btn">开始游戏</div>
+
+
+</body>
+</html>
